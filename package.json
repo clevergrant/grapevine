@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
+    "dev": "concurrently --raw --success first \"npm run dev:api\" \"npm run dev:client\"",
     "dev:api": "cd api && npm start",
     "dev:client": "cd webclient/app && npm run dev",
     "start": "npm run dev",
