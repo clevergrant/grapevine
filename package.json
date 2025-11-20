@@ -1,0 +1,22 @@
+{
+  "name": "grapevine",
+  "version": "0.0.1",
+  "description": "Grapevine - A fun party game with a retro design",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
+    "dev:api": "cd api && npm start",
+    "dev:client": "cd webclient/app && npm run dev",
+    "start": "npm run dev",
+    "install:all": "npm install && cd api && npm install && cd ../webclient/app && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clevergrant/grapevine-webclient.git"
+  },
+  "license": "Apache-2.0"
+}
