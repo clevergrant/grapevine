@@ -1,6 +1,3 @@
-[submodule "webclient"]
-	path = webclient
-	url = https://github.com/clevergrant/grapevine-webclient.git
-[submodule "api"]
-	path = api
-	url = https://github.com/clevergrant/grapevine-api.git
+[submodule "vendors/easy-p2p-netcode"]
+	path = vendors/easy-p2p-netcode
+	url = https://github.com/clevergrant/easy-p2p-netcode.git
