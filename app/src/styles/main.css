@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
+@import url('https://use.typekit.net/ida2bot.css');
+
+:root {
+  --red: #ff4c2e;
+  --orange: #fe792e;
+  --yellow: #fdd42c;
+  --lime: #bad015;
+  --green: #64b53c;
+  --blue: #89d6e8;
+  --indigo: #3f5d93;
+  --violet: #ff63a8;
+  --black: #151f21;
+  --brown: #5b3314;
+  --beige: #f2f1dd;
+  --white: #feffef;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'cooper-black-std', 'Alfa Slab One', 'Cooper Black', serif;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+#root { min-height: 100vh; }
+
+h1, h2, h3 { font-weight: normal; user-select: none; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.swatch-red    { background-color: var(--red); }
+.swatch-orange { background-color: var(--orange); }
+.swatch-yellow { background-color: var(--yellow); color: var(--black); }
+.swatch-lime   { background-color: var(--lime); color: var(--black); }
+.swatch-green  { background-color: var(--green); }
+.swatch-blue   { background-color: var(--blue); color: var(--black); }
+.swatch-indigo { background-color: var(--indigo); }
+.swatch-violet { background-color: var(--violet); }
+
+/* Title screen: top 50vh black with title text + horizontal rainbow stripes,
+   bottom 50vh beige split into two equal action buttons. */
+.title-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.title-bar {
+  height: 50vh;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+}
+.title-bar .title {
+  flex-grow: 0;
+  margin: 0 2rem;
+  font-family: 'Shrikhand', 'cooper-black-std', serif;
+  color: var(--white);
+  font-size: 5rem;
+}
+.rainbow {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.rainbow > .stripe {
+  width: 100%;
+  height: 0.75rem;
+}
+
+.title-menu {
+  height: 50vh;
+  background-color: var(--beige);
+  display: flex;
+  overflow: hidden;
+}
+.menu-btn {
+  width: 50%;
+  border: none;
+  background: transparent;
+  color: var(--black);
+  font-family: inherit;
+  font-size: 2.25rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+/* Lobby: dark header with code on left + start button on right,
+   followed by 8 player rows, each a tall colored band. */
+.lobby-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.lobby-header {
+  height: 10vh;
+  min-height: 4rem;
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.lobby-header .code {
+  font-family: 'Shrikhand', monospace;
+  font-size: 2rem;
+  letter-spacing: 0.25em;
+  color: var(--white);
+}
+.lobby-header .start {
+  border: none;
+  background-color: var(--beige);
+  color: var(--black);
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+}
+.lobby-header .start[disabled] { opacity: 0.4; cursor: not-allowed; }
+
+.player-row {
+  height: 9vh;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.75rem;
+}
+.player-row.waiting {
+  background-color: var(--black);
+  color: var(--white);
+  opacity: 0.4;
+  font-style: italic;
+}
+.player-row.red    { background-color: var(--red); }
+.player-row.orange { background-color: var(--orange); }
+.player-row.yellow { background-color: var(--yellow); color: var(--black); }
+.player-row.lime   { background-color: var(--lime); color: var(--black); }
+.player-row.green  { background-color: var(--green); }
+.player-row.blue   { background-color: var(--blue); color: var(--black); }
+.player-row.indigo { background-color: var(--indigo); }
+.player-row.violet { background-color: var(--violet); }
+
+/* Answer screen: top 50vh prompt (beige), bottom 50vh input (black). */
+.answer-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.answer-screen .prompt {
+  height: 50vh;
+  background-color: var(--beige);
+  color: var(--black);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+.answer-screen .answer-input {
+  height: 50vh;
+  width: 100%;
+  border: none;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+.answer-screen .answer-input::placeholder { color: #274348; }
+.answer-screen.waiting {
+  background-color: var(--black);
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+/* Voting: top 50vh prompt (beige), bottom 50vh two side-by-side choices. */
+.voting-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.voting-screen .prompt {
+  height: 50vh;
+  background-color: var(--beige);
+  color: var(--black);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+.voting-screen .choices {
+  height: 50vh;
+  display: flex;
+  background-color: var(--black);
+}
+.voting-screen .choice {
+  width: 50%;
+  border: none;
+  background: transparent;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 2.25rem;
+  cursor: pointer;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* Results: rows with proportional colored bars behind the player name + score. */
+.results-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--black);
+}
+.result-row {
+  position: relative;
+  height: 9vh;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  color: var(--white);
+  font-size: 1.5rem;
+  background-color: var(--black);
+}
+.result-row .bar { position: absolute; top: 0; bottom: 0; left: 0; }
+.result-row .bar.yellow,
+.result-row .bar.lime,
+.result-row .bar.blue { /* light backgrounds get black foreground via parent rule below */ }
+.result-row.fg-dark { color: var(--black); }
+.result-row .name,
+.result-row .points { position: relative; z-index: 1; }
+.result-row .points { margin-left: auto; }
+.results-screen .play-again {
+  align-self: flex-end;
+  margin: 1rem 2rem;
+  border: none;
+  background-color: var(--beige);
+  color: var(--black);
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+}

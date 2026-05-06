@@ -1,22 +1,29 @@
 {
   "name": "grapevine",
-  "version": "0.0.1",
-  "description": "Grapevine - A fun party game with a retro design",
   "private": true,
+  "version": "0.2.0",
+  "description": "Grapevine - A P2P party game with a retro design",
   "type": "module",
+  "workspaces": ["vendors/easy-p2p-netcode"],
   "scripts": {
-    "dev": "concurrently --raw --success first \"npm run dev:api\" \"npm run dev:client\"",
-    "dev:api": "cd api && npm start",
-    "dev:client": "cd webclient/app && npm run dev",
-    "start": "npm run dev",
-    "install:all": "npm install && cd api && npm install && cd ../webclient/app && npm install"
+    "dev": "bun --hot run dev-server.ts",
+    "build:app": "bun build app/index.html --outdir=dist --target=browser --minify",
+    "build": "bun run build:app",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint app netlify dev-server.ts",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "easy-p2p-netcode": "workspace:*",
+    "zod": "^3.23.0"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/clevergrant/grapevine-webclient.git"
+    "@netlify/blobs": "^8.1.0",
+    "@netlify/functions": "^3.0.0",
+    "@types/bun": "^1.3.13",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.5.0"
   },
   "license": "Apache-2.0"
 }
